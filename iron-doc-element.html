@@ -43,12 +43,12 @@ descriptor output by
         <a class="name deeplink"
             target$="[[_superclassTarget(descriptor.superclass)]]"
             href$="[[_superclassUrl(descriptor.superclass)]]">[[descriptor.superclass]]</a>
-        <span hidden$="[[!descriptor.mixins]]"> with
-          <span>
+        <span hidden$="[[!descriptor.mixins]]"> with:
+          <ul>
             <template is="dom-repeat" items="[[descriptor.mixins]]" sort="_compareDescriptors">
-              <a class="name deeplink mixin" href$="[[baseHref]]/mixins/[[item]]">[[item]]</a>
+              <li><a class="name deeplink mixin" href$="[[baseHref]]/mixins/[[item]]">[[item]]</a></li>
             </template>
-          </span>
+          </ul>
         </span>
       </code>
     </div>

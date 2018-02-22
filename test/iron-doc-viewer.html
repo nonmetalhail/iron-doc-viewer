@@ -60,6 +60,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                 "url": "demo/fancy-demo.html",
                 "description": "My Fancy Demo"
               }
+            ],
+            "mixins": [
+              "ACoolMixin",
+              "AnotherCoolMixin"
             ]
           }
         ],
@@ -112,7 +116,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
               .$$('iron-doc-viewer')
               .$$('iron-doc-element');
           var text = Polymer.dom(view.root).textContent;
+          var mixins = Polymer.dom(view.root).querySelectorAll('.mixin');
           expect(text).contains('my-element');
+          expect(mixins.length).to.equal(2);
+          expect(mixins[0].parentNode.tagName).to.equal('LI');
         });
 
         it('renders mixin', function() {
